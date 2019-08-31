@@ -1,0 +1,20 @@
+def checkpair(a,b):
+    if(a is'[' and b is']'):
+        return True
+    elif(a is '{' and b is'}'):
+        return True
+    elif(a is '(' and b is ')'):
+        return True
+    return False
+s=input()
+stack=[]
+openb=['[','{','(']
+for i in range(len(s)):
+    if(s[i] in openb):
+        stack.append(s[i])
+    elif(len(stack)>0 and checkpair(stack.pop(),s[i])):
+        continue
+    else:
+        print('NO')
+        exit()
+print('YES')
